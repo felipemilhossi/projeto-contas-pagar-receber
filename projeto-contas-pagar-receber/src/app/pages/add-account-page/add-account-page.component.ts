@@ -33,7 +33,7 @@ public form: FormGroup;
     this.dataService
       .postAccount(this.form.value)
       .subscribe(data => {
-        this.router.navigateByUrl('/accounts');
+        this.router.navigateByUrl('/account');
       });
   }
 

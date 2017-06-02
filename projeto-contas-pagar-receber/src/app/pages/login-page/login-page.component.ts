@@ -34,19 +34,22 @@ public form: FormGroup;
     const username = localStorage.getItem('username');
 
     if (token && username) {
-      this.router.navigateByUrl('/accounts');
+      this.router.navigateByUrl('/account');
     }
   }
 
     submit() {
+      console.log(this.form.value)
     this.dataService
       .authenticate(this.form.value)
       .subscribe(data => {
+        console.log(this.form.value);
         localStorage.setItem('token', data.token);
         localStorage.setItem('username', data.username);
 
-        this.router.navigateByUrl('/products');
+        this.router.navigateByUrl('/account');
       }, error => {
+        console.log(error);
         alert('Usuário ou senha inválidos');
       });
   }

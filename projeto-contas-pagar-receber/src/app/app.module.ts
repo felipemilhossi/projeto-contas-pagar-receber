@@ -9,7 +9,9 @@ import { AppComponent } from './app.component';
 import { AccountPageComponent } from './pages/account-page/account-page.component';
 import { AddAccountPageComponent } from './pages/add-account-page/add-account-page.component';
 import { EditAccountPageComponent } from './pages/edit-account-page/edit-account-page.component';
-import { LoginPageComponent } from './login-page/login-page.component';
+import { LoginPageComponent } from './pages/login-page/login-page.component';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 @NgModule({
@@ -18,7 +20,9 @@ import { LoginPageComponent } from './login-page/login-page.component';
     AccountPageComponent,
     AddAccountPageComponent,
     EditAccountPageComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

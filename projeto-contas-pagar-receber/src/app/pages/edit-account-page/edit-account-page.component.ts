@@ -28,7 +28,7 @@ export class EditAccountPageComponent implements OnInit {
    }
 
   ngOnInit() {
-        this.activatedRoute.params.subscribe((params: Params) => {
+      this.activatedRoute.params.subscribe((params: Params) => {
       this.id = params['id'];
       this.getAccount(this.id);
     });
@@ -38,8 +38,9 @@ export class EditAccountPageComponent implements OnInit {
     this.dataService
       .getAccount(id)
       .subscribe(data => {
-        this.form.controls['description'].setValue(data.title);
-        this.form.controls['value'].setValue(data.price);
+        console.log(data.description);
+        this.form.controls['description'].setValue(data.description);
+        this.form.controls['value'].setValue(data.value);
       });
   }
 
@@ -47,7 +48,7 @@ export class EditAccountPageComponent implements OnInit {
     this.dataService
       .putAccount(this.id, this.form.value)
       .subscribe(data => {
-        this.router.navigateByUrl('/accounts');
+        this.router.navigateByUrl('/account');
       });
   }
 
