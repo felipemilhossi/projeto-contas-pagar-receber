@@ -8,6 +8,7 @@ import { DataService } from '../../services/data.service';
 })
 export class AccountPageComponent implements OnInit {
 public accounts: any[] = [];
+public total:number = 108;
 
   constructor(private dataService: DataService) { 
       this.dataService
@@ -15,6 +16,7 @@ public accounts: any[] = [];
       .subscribe(data => {
         this.accounts = data;
       });
+
   }
 
   ngOnInit() {

@@ -6,6 +6,7 @@ import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class DataService {
+
     private serviceUrl = 'http://localhost:5000/api/';
 
     constructor(public http: Http) { }
@@ -34,6 +35,10 @@ export class DataService {
 
     getAccounts() {
         return this.http.get(this.serviceUrl + 'account/v1/accounts', this.getHeaders()).map((res: Response) => res.json());
+    }
+
+    getAccountsSubTotal() {
+        return this.http.get(this.serviceUrl + 'account/v1/accounts/subtotal', this.getHeaders()).map((res: Response) => res.json());
     }
 
     getAccount(id) {

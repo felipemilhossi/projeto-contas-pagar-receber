@@ -8,20 +8,28 @@
             <th class="text-center">Descrição</th>
             <th class="text-center">Data</th>
             <th class="text-center">Valor</th>
+            <th class="text-center">Operação</th>
             <th class="text-center">Remover</th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let account of accounts" routerLink="/account/edit/{{ account.id }}" >
-            <td class="text-center">{{ account.description }}</td>
-            <td class="text-center">{{ account.date }}</td>
-            <td class="text-center">R$ {{ account.value | currency:'BRL':false }}</td>
+        <tr *ngFor="let account of accounts"  >
+            <td class="text-center" routerLink="/account/edit/{{ account.id }}">{{ account.description }}</td>
+            <td class="text-center" routerLink="/account/edit/{{ account.id }}">{{ account.date | date:'dd-MM-yyyy' }}</td>
+            <td class="text-center" routerLink="/account/edit/{{ account.id }}">{{ account.value | currency:'BRL':true }}</td>
+            <td class="text-center" routerLink="/account/edit/{{ account.id }}">{{ account.value < 0 ? "Pagar" : "Receber" }}</td>
             <td class="text-center">
                 <div class="btn-group">
-                    <!--<a routerLink="/account/edit/{{ account.id }}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i></a>-->
                     <button class="btn btn-danger btn-sm" (click)="remove(account)"><i class="fa fa-remove"></i></button>                    
                 </div>
             </td>
         </tr>
     </tbody>
+    <tfoot class="text-success">
+            <th class="text-center">Total</th>
+            <th class="text-center"></th>
+            <th class="text-center">R$ {{total | currency:'BRL':false}}</th>
+            <th class="text-center"></th>
+            <th class="text-center"></th>
+    <tfoot>
 </table>
